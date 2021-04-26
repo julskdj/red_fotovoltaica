@@ -1,0 +1,27 @@
+{
+  "name": "red_fotovoltaica",
+  "version": "0.6.20",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rodrigogs/mysql-events": "^0.6.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
+    "get-json": "^1.0.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.5.0",
+    "ora": "^5.4.0",
+    "serialport": "^9.0.7",
+    "socket.io": "^2.0.4"
+  }
+}

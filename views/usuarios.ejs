@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/css/style.css">
+
+  <!-- ===== BOX ICONS ===== -->
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="../resources/assets/css/styles.css">
+  <title>Registro usuarios</title>
+</head>
+
+<body id="body-pd">
+
+    <% if (login) { %>
+    <% if (rol == 'admin') { %>
+
+      <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+
+        <div class="header__img">
+            <img src="../resources/assets/img/perfil.jpg" alt="">
+        </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav__logo">
+                    <i class='bx bxs-user' style='color:#e7e1e1'  ></i>
+                    <span class="nav__logo-name"></span>
+                </a>
+
+                <div class="nav__list">
+                  <a href="inicio" class="nav__link active">
+                  <i class='bx bx-grid-alt nav__icon' ></i>
+                      <span class="nav__name">Inicio</span>
+                  </a>
+
+                  <a href="graficos" class="nav__link">
+                    <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
+                    <span class="nav__name">Graficos</span>
+                </a>
+
+                <a href="estadisticas" class="nav__link">
+                    <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
+                    <span class="nav__name">Estadisticas</span>
+                  </a>
+
+                  <a href="usuarios" class="nav__link">
+                      <i class='bx bx-user nav__icon' ></i>
+                      <span class="nav__name">Administrar Usuarios</span>
+                  </a>
+                   
+                  <a href="logout" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Cerrar Sesion</span>
+                </a>
+              </div>
+            </div>
+
+            
+        </nav>
+    </div>
+
+    <br><br><br>
+    <div class="table-responsive">
+        <a href="/register" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>
+        <br><br>    
+      <table id="users" class="table table-bordered table-striped text-center mt-4">
+        <thead>
+          <tr class="text-white" style="background-color: #4723D9;">
+            <th scope="col">ID</th>
+            <th scope="col">USUARIO</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">ROL</th>            
+            <th scope="col">ACCIONES</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <% results.forEach((user) => { %>
+            <tr>
+                <td><%= user.id %>  </td>
+                <td><%= user.user %>  </td>
+                <td><%= user.name %>  </td>
+                <td><%= user.email %>  </td>
+                <td><%= user.rol %>  </td>
+                <td>
+                    <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
+                    <a onclick="confirmar(<%= user.id %>)" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
+                  </td>
+          <%})%> 
+        </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
+    
+      </div>
+
+
+    <!--===== MAIN JS =====-->
+    <script src="../resources/assets/js/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../resources/js/swetalert.js"></script>
+
+    <%} else { %>
+        <h1><strong>Usted no es admin</strong></h1>   
+        <a href="inicio" class="a-login">Ir a inicio</a>
+    <% } %> 
+      
+    
+    
+      <%} else { %>
+    
+        
+    
+        <h1><strong><%= name %></strong></h1>   
+        <a href="login" class="a-login">Ir a Login</a>
+    <% } %>
+              
+</div>
+                  
+    
+    <script src="resources/js/icons.js"></script>
+    <script src="resources/js/script.js"></script>
+</body>
+
+</html>

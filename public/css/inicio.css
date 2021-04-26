@@ -1,0 +1,17 @@
+.div2{
+    box-shadow: 7px 13px 37px #000;
+    padding-top: 50px ;
+    padding-bottom: 50px ;
+    margin: 15px;
+    background-color: #b9a8ff;
+    border-radius: 10px;
+}
+
+.div3{
+    
+    padding-top: 50px ;
+    padding-bottom: 50px ;
+    margin: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
